@@ -84,17 +84,16 @@ public static class UndoSystem
 		};
 		registerAction (a);
 	}
-	
-	public static void registerChangeGizmoTargetAction(GameObject initialTarget, Gizmo gizmo)
+
+    public static void registerChangeGizmoTargetAction(RectTransform initialTarget, RectTransform newTarget, Gizmo gizmo)
 	{
 		Action a = new Action ();
 		a.undo = delegate () {
-			gizmo.setOnObject(initialTarget.transform as RectTransform);
+            gizmo.moveTo(initialTarget);
 		};
 
-		GameObject newTarget = gizmo.CurrentTarget;
 		a.redo = delegate () {
-			gizmo.setOnObject(newTarget.transform as RectTransform);
+            gizmo.moveTo(newTarget );
 		};
 		registerAction (a);
 	}

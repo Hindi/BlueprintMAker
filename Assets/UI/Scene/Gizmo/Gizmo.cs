@@ -56,10 +56,15 @@ public class Gizmo : MonoBehaviour
 	
 	public void setOnObject(RectTransform target)
 	{
-		currentTarget = target;
-		UndoSystem.registerChangeGizmoTargetAction (CurrentTarget, this);
-		rectTransform.anchoredPosition = target.anchoredPosition;
+		UndoSystem.registerChangeGizmoTargetAction (currentTarget, target, this);
+        moveTo(target);
 	}
+
+    public void moveTo(RectTransform target)
+    {
+        currentTarget = target;
+        rectTransform.anchoredPosition = target.anchoredPosition;
+    }
 
 	public void hide()
 	{
