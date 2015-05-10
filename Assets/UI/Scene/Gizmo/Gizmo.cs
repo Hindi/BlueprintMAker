@@ -99,6 +99,6 @@ public class Gizmo : MonoBehaviour
 	private void setButtonActive(ToggleButton button, GameObject tool, bool b)
 	{
 		tool.SetActive(b);
-		button.setPresed (b);
+		button.setPressed (b);
 	}
 }

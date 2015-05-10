@@ -45,6 +45,7 @@ Temporary Items
 *.csproj
 /Build
 /obj
+/Temp
 /Library
 *.sln
 *.userprefs

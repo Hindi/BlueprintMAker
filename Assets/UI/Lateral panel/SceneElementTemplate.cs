@@ -13,11 +13,17 @@ public class SceneElementTemplate : MonoBehaviour, IPointerClickHandler
 
 	[HideInInspector]
 	public Sprite ElementSprite
-	{ get { return image.sprite; } }
+	{ 
+		get { return image.sprite; } 
+		set { image.sprite  = value; }
+	}
 
 	[HideInInspector]
 	public string ElementName
-	{ get { return nameLabel.text; } }
+	{ 
+		get { return nameLabel.text; } 
+		set { nameLabel.text = value; } 
+	}
 
 	private Scene scene;
 

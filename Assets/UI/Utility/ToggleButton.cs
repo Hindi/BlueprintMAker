@@ -12,7 +12,7 @@ public class ToggleButton : MonoBehaviour
 	private ColorBlock colorBLock;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		button = GetComponent<Button> ();
 		if (button == null)
 			Debug.LogError ("[TOGGLEBUTTON]No button object component available.");
@@ -21,7 +21,7 @@ public class ToggleButton : MonoBehaviour
 		colorBLock = button.colors;
 	}
 
-	public void setPresed(bool b)
+	public void setPressed(bool b)
 	{
 		colorBLock.normalColor = ( b ? pressedColor : notPressedColor);
 		button.colors = colorBLock;
