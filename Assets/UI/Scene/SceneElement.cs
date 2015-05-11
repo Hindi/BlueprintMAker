@@ -5,20 +5,16 @@ using System.Collections;
 public class SceneElement : MonoBehaviour 
 {
 	[SerializeField]
-	private Image image;
+    private Image image;
+    [SerializeField]
+    private float displayFactor;
+    private RectTransform rectTransform;
 
 	public void initialize(Sprite sprite)
 	{
-		image.sprite = sprite;
-	}
+        image.sprite = sprite;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+        rectTransform = image.transform as RectTransform;
+        rectTransform.sizeDelta = new Vector2(image.sprite.texture.width, image.sprite.texture.height) * displayFactor;
 	}
 }

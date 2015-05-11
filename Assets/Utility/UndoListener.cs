@@ -11,24 +11,34 @@ public class UndoListener : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update ()
+    {
+
 #if UNITY_EDITOR
-		if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.E))
 #else
-		if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
+			if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Z))
+#endif
+        {
+            redo();
+        }
+#if UNITY_EDITOR
+		else if(Input.GetKeyDown(KeyCode.Z))
+#else
+		else if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
 #endif
 		{
-			UndoSystem.undo();
-		}
-		
-#if UNITY_EDITOR
-		if(Input.GetKeyDown(KeyCode.E))
-#else
-			if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Z))
-#endif
-		{
-			UndoSystem.redo();
+			undo();
 		}
 	}
+
+    public void undo()
+    {
+        UndoSystem.undo();
+    }
+
+    public void redo()
+    {
+        UndoSystem.redo();
+    }
 }

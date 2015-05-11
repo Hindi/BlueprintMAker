@@ -25,7 +25,7 @@ public class PopupLateralPanel : MonoBehaviour
 		panelRect = GetComponent<RectTransform> ();
 		inPosition = panelRect.position;
 		outPosition = panelRect.position;
-		outPosition.x += ((panelRect.rect.width - buttonRect.rect.width) * canvas.GetComponent<RectTransform>().localScale.x);	
+		outPosition.x += ((panelRect.rect.width - buttonRect.rect.width) * canvas.GetComponent<RectTransform>().localScale.x);
 	}
 	
 	public void fromUiPopup(bool popIn)
