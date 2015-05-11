@@ -25,8 +25,8 @@ public class Selectable : MonoBehaviour, IPointerClickHandler
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
-	{
-		scene.notifySelection(rectTransform);
+    {
+        scene.notifySelection(rectTransform);
 	}
 
 	public void destroySelf()

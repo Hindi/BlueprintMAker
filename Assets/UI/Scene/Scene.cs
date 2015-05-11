@@ -37,6 +37,6 @@ public class Scene : MonoBehaviour
 
 	public void notifySelection(RectTransform selected)
 	{
-		gizmo.setOnObject (selected);
+		gizmo.setOnObject(selected);
 	}
 }
