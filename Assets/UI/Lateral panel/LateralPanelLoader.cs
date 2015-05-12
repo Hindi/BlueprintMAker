@@ -4,7 +4,7 @@ using System.Collections;
 public class LateralPanelLoader : MonoBehaviour 
 {
 	[SerializeField]
-	private DataLoader dataLoader;
+    private ImageLoader dataLoader;
 
 	[SerializeField]
 	private GameObject sceneTemplatePrefab;
@@ -31,6 +31,10 @@ public class LateralPanelLoader : MonoBehaviour
 		obj.GetComponent<FolderNameTemplate> ().lateralPanelLoader = this;
 
 		obj.GetComponent<RectTransform>().localScale *= canvasRect.localScale.x;
+
+#if UNITY_EDITOR
+        obj.name = "[Folder]" + name;
+#endif
 	}
 
 	public void addImage(string name, Sprite sprite)
@@ -40,6 +44,10 @@ public class LateralPanelLoader : MonoBehaviour
 		obj.GetComponent<SceneElementTemplate> ().ElementName = name;
 		obj.GetComponent<SceneElementTemplate> ().ElementSprite = sprite;
 		obj.GetComponent<RectTransform>().localScale *= canvasRect.localScale.x;
+
+#if UNITY_EDITOR
+        obj.name = "[SceneElementTemplate]" + name;
+#endif
 	}
 
 	public void displayerFolderContent(string name)

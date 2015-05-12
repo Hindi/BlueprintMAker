@@ -40,18 +40,21 @@ public class Gizmo : MonoBehaviour
 
 	public void notifyTranslation(Vector2 nextPosition)
 	{
-		currentTarget.position = (nextPosition);
+        if(currentTarget)
+		    currentTarget.position = (nextPosition);
 		transform.position = nextPosition;
 	}
 
 	public void notifyRotation(float rot)
-	{
-		currentTarget.Rotate (Vector3.forward * rot);
+    {
+        if (currentTarget)
+		    currentTarget.Rotate (Vector3.forward * rot);
 	}
 	
 	public void notifyScale(Vector3 scale)
-	{
-		currentTarget.localScale += scale;
+    {
+        if (currentTarget)
+		    currentTarget.localScale += scale;
 	}
 	
 	public void setOnObject(RectTransform target)

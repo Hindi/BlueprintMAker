@@ -14,7 +14,7 @@ public class SceneElement : MonoBehaviour
 	{
         image.sprite = sprite;
 
-        rectTransform = image.transform as RectTransform;
+        rectTransform = transform as RectTransform;
         rectTransform.sizeDelta = new Vector2(image.sprite.texture.width, image.sprite.texture.height) * displayFactor;
         getSave();
 	}
@@ -23,11 +23,10 @@ public class SceneElement : MonoBehaviour
     {
         Vector2 position = rectTransform.position;
         Quaternion rot = transform.rotation;
-        string json = "{ image : " + image.sprite.name;
-        json += ", rect : { x : " + position.x + ", y : " + position.y;
-        json += ", w : " + rectTransform.rect.width + ", h : " + rectTransform.rect.height + "}";
-        json +=  ", rotation : { w : " + rot.w + ", x :  " + rot.x + ", y : " + rot.y + " , z : " + rot.z + " }" + "}";
-        Debug.Log(json);
+        string json = "{\n\t\t image : " + image.sprite.name;
+        json += ",\n\t\t rect : { x : " + position.x + ", y : " + position.y;
+        json += ", w : " + rectTransform.localScale.x + ", h : " + rectTransform.localScale.y + "}";
+        json += ",\n\t\t rotation : { w : " + rot.w + ", x :  " + rot.x + ", y : " + rot.y + " , z : " + rot.z + " }" + "\n}";
         return json;
     }
 }

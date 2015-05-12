@@ -26,6 +26,22 @@ public class Scene : MonoBehaviour
 
 	}
 
+    public string save()
+    {
+        string json = "{ \n\t scenes : [";
+        foreach(Transform t in sceneElementContainer.transform)
+        {
+            SceneElement se = t.GetComponent<SceneElement>();
+            if(se != null)
+            {
+                json += se.getSave();
+                json += ", \n";
+            }
+        }
+        json += "\n\t]}";
+        return json;
+    }
+
 	public void createSceneElement(Sprite sprite)
 	{
 		GameObject obj = Instantiate(sceneElementPrefab);

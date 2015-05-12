@@ -37,7 +37,7 @@ public class Folder {
 	}
 }
 
-public class DataLoader : MonoBehaviour 
+public class ImageLoader : MonoBehaviour 
 {
 	[SerializeField]
 	private LateralPanelLoader lateralPanelLoader;
@@ -48,7 +48,7 @@ public class DataLoader : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		folders = new Dictionary<string, Folder>();
-		StartCoroutine(load ());
+        StartCoroutine(loadImages());
 	}
 	
 	// Update is called once per frame
@@ -56,7 +56,7 @@ public class DataLoader : MonoBehaviour
 	
 	}
 
-	public IEnumerator load()
+	public IEnumerator loadImages()
 	{
 		DirectoryInfo dInfo = new DirectoryInfo("Assets/Resources/Images");
 		DirectoryInfo[] subdirs = dInfo.GetDirectories();

@@ -89,11 +89,14 @@ public static class UndoSystem
 	{
 		Action a = new Action ();
 		a.undo = delegate () {
-            gizmo.moveTo(initialTarget);
+            if(initialTarget != null)
+                gizmo.moveTo(initialTarget);
 		};
 
-		a.redo = delegate () {
-            gizmo.moveTo(newTarget );
+        a.redo = delegate()
+        {
+            if (newTarget != null)
+                gizmo.moveTo(newTarget );
 		};
 		registerAction (a);
 	}
